@@ -1,0 +1,515 @@
+                
+ 
+/*CODE FOR VEHICLE PARKING SYSTEM*/
+
+#include<stdio.h>
+#include<string.h>
+#include<time.h>
+#include "allocate.c"
+#include "tim.c"
+#include "dis.c"
+#include "c1.c"
+char str[5];
+int type[200][2];
+char intime[200][15];
+char regno[200][15];
+
+void main()
+{  
+    int selection; int token=1,tok;  int tokr,typ;
+     login();
+     printf("\n\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb        WELCOME TO VGK CAR SHOWROOM            \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb                COIMBATORE                     \xdb\n");
+printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");
+    printf("\t\tSelect\n\n\t\t\t1.Entry\n\n\t\t\t2.Exit\n\n\t\t\t3.Display\n\n\t\t\t4.Quit\n\n\t\tOption ---->\t");
+     scanf("%d",&selection);
+    do
+    {
+        switch(selection)
+        {
+            case 1: tok=entry(token);token=tok;//printf("%d %d",tok-1,type[tok-1][0]);
+                    alloc(tok-1,type[tok-1][0]);
+                    break;
+            case 2: printf("\nEnter the token no ---->\t"); scanf("%d",&tokr);
+                      printf("\n\nEnter type ---->\t");scanf("%d",&typ);  dealloc(tokr,typ);
+                     charges(intime[tokr][0],intime[tokr][1],intime[tokr][2],intime[tokr][3],regno[tokr]);
+                       break;
+            case 3: displ(tok);
+                    break;
+            case 4: break;
+            default:printf("Not valid");
+        }
+        if(selection!=4)
+        {    
+            sleep(5);
+            system("cls");
+            printf("\n\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+             printf("\t\t\xdb                                               \xdb\n");
+             printf("\t\t\xdb       =============================           \xdb\n");
+             printf("\t\t\xdb        WELCOME TO VGK CAR SHOWROOM            \xdb\n");
+             printf("\t\t\xdb       =============================           \xdb\n");
+             printf("\t\t\xdb                                               \xdb\n");
+             printf("\t\t\xdb                COIMBATORE                     \xdb\n");    printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");    
+            printf("\t\tSelect\n\n\t\t\t1.Entry\n\n\t\t\t2.Exit\n\n\t\t\t3.Display\n\n\t\t\t4.Quit\n\n\t\tOption ---->\t");
+            scanf("%d",&selection);
+        }
+    }while(selection!=4);
+}
+
+
+int entry(int token)
+{    
+    //char regno[200][15];
+    //int type[200][2];
+    system("cls");
+    printf("\n\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb        WELCOME TO VGK CAR SHOWROOM            \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb                COIMBATORE                     \xdb\n");
+printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");
+    printf("\n\nEnter the Registration no ----->\t");
+    scanf("%s",regno[token]);
+    time_t mytime = time(NULL);
+    char * starttime = ctime(&mytime);
+    starttime[strlen(starttime)-1] = '\0';
+    //strcpy(time_str,intime);
+    printf("\nEnter the vehicle type 1-Car 2-Bike: ----->\t");
+    scanf("%d",&type[token][0]);
+    intime[token][0]=starttime[11];
+    intime[token][1]=starttime[12];
+    intime[token][2]=starttime[14];
+    intime[token][3]=starttime[15];
+//    printf("%c%c:%c%c ",intime[token][0],intime[token][1],intime[token][2],intime[token][3]);
+    FILE * fptr;  
+    fptr = fopen("boot.txt", "a");
+      fputs(regno[token],fptr);fputs("   ",fptr);
+    fputs(starttime,fptr);fputs("   ",fptr);
+    if(type[token][0]==1)
+        fputs("Car",fptr);
+    if(type[token][0]==2)
+        fputs("Bike",fptr);
+        fputs("\n",fptr);  
+        fclose(fptr);
+    //fputs(token,fptr);fputs("\n",fptr);
+    token++;// printf("%d",token);
+    return token;
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int login()
+{
+    char uname[20],pass[20];int i,count=4;
+    
+    printf("\n\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb         VEHICLE PARKING MANAGEMENT            \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb              Brought To You By                \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+    printf("\t\t\xdb                  SUPERFLIES                    \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb              (A DUBAI COMPANY)                \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb      CONTACT US:9712783289                    \xdb\n");
+     printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");
+    printf("\n\t\tusername : ");
+    gets(uname);
+    printf("\n\t\tpassword : ");
+    gets(pass);
+    if((strcmp(uname,"admin1")==0 && strcmp(pass,"kkmk")==0 )||(strcmp(uname,"admin2")==0 && strcmp(pass,"kkmk")==0) )
+    {
+        printf("\n\t\tlogin sucessful\n ");
+        sleep(2);
+        system("cls");
+        return 0;
+    }
+    else
+    {
+        printf("\n\t\tusername or password is incorrect");
+        while(count)
+        {
+            printf("\n \t\tRemaining attempts --> %d\n\n",count);
+            printf("\n\t\tusername : ");
+            gets(uname);
+            printf("\n\t\tpassword : ");
+            gets(pass);
+            if((strcmp(uname,"admin1")==0 && strcmp(pass,"kkmk")==0 )||(strcmp(uname,"admin2")==0 && strcmp(pass,"kkmk")==0) )
+            {
+                printf("\n\t\tlogin sucessful\n ");
+                sleep(2);
+                system("cls");
+                return 0;
+            }
+            count--;
+        }
+    system("cls");
+    printf("\n\n\t\tlimit exceeded.Access denied\n\n");
+    exit(0);
+    }
+}
+
+
+LOGIN MODULE
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int login()
+{
+    char uname[20],pass[20];int i,count=4;
+    
+    printf("\n\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb         VEHICLE PARKING MANAGEMENT            \xdb\n");
+     printf("\t\t\xdb       =============================           \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb              Brought To You By                \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+    printf("\t\t\xdb                KEKRAN MEKRAN                  \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb              (A DUBAI COMPANY)                \xdb\n");
+     printf("\t\t\xdb                                               \xdb\n");
+     printf("\t\t\xdb      CONTACT US:98765432100,0610423280        \xdb\n");
+     printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");
+    printf("\n\t\tusername : ");
+    gets(uname);
+    printf("\n\t\tpassword : ");
+    gets(pass);
+    if((strcmp(uname,"admin1")==0 && strcmp(pass,"kkmk")==0 )||(strcmp(uname,"admin2")==0 && strcmp(pass,"kkmk")==0) )
+    {
+        printf("\n\t\tlogin sucessful\n ");
+        sleep(2);
+        system("cls");
+        return 0;
+    }
+    else
+    {
+        printf("\n\t\tusername or password is incorrect");
+        while(count)
+        {
+            printf("\n \t\tRemaining attempts --> %d\n\n",count);
+            printf("\n\t\tusername : ");
+            gets(uname);
+            printf("\n\t\tpassword : ");
+            gets(pass);
+            if((strcmp(uname,"admin1")==0 && strcmp(pass,"kkmk")==0 )||(strcmp(uname,"admin2")==0 && strcmp(pass,"kkmk")==0) )
+            {
+                printf("\n\t\tlogin sucessful\n ");
+                sleep(2);
+                system("cls");
+                return 0;
+            }
+            count--;
+        }
+    system("cls");
+    printf("\n\n\t\tlimit exceeded.Access denied\n\n");
+    exit(0);
+    }
+}
+
+ALLOCATION MODULE
+
+#include<stdio.h>
+#include<string.h>
+int two[2][50]={0};
+int four[2][50]={0};
+alloc(int tokennum,int type)
+{  
+    if(type==1)
+    printf("\nToken ---->\t%d\n\nType ---->\tFOUR WHEELER\n\n",tokennum,type);
+    else
+    printf("\nToken ---->\t%d\n\nType ---->\tTWO WHEELER\n\n",tokennum,type);
+    //int tokennum;
+    int i,j;
+    /*scanf("%d",&tokennum);
+    int type;
+    scanf("%d",&type);*/
+
+    int a=0,b=0,co=0,ca=0;
+    if(type==2)
+    {
+        for(i=0;i<2;i++)
+        {
+            for( j=0;j<50;j++)
+            {
+            if(two[i][j]==0)
+                {
+                    two[i][j]=tokennum;
+                    a=i;
+                    b=j;
+                    co++;
+                    
+                goto a;
+                }    
+            }
+        }
+        if(co==0)
+        {
+            printf("FULL\n");
+            goto e;
+        }        
+        a:    if(a==0)
+        printf("\nAllocated in A%d\n\n",b+1)    ;
+        else if(a==1)
+        printf("\nAllocated in B%d\n\n",b+1)    ;
+        e:
+        printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");    
+        printf("\xdb ");
+        printf("\t\t\t\tTWO WHEELER PARKING AREA\t\t\t\t\t      \xdb\n");
+        for(i=0;i<2;i++)
+        {
+            printf("\xdb ");
+            for( j=0;j<50;j++)
+            {
+                if(two[i][j]==0)
+                printf("| ");
+                else
+                printf("* ");
+            }
+            printf("\xdb ");
+            printf("\n");
+        }
+        printf("\xdb\t\t\t\t\t\t\t\t\t\t\t\t      \xdb");
+        printf("\n");
+        printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+    }
+        else if(type==1)
+        {
+        
+        for(i=0;i<5;i++)
+        {
+            for( j=0;j<50;j++)
+            {
+            if(four[i][j]==0)
+                {
+                    four[i][j]=tokennum;
+                    a=i;
+                    b=j;
+                    
+                goto c;
+                }
+                
+            }
+            
+        }if(ca==0)
+        {
+            printf("FULL\n");
+            goto g;
+        }        
+        
+        c:    if(a==0)
+        printf("Allocated in C%d\n",b+1)    ;
+        else if(a==1)
+        printf("Allocated in D%d\n",b+1)    ;
+        g:
+        printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");    
+        printf("\xdb ");
+        printf("\t\t\t\tFOUR WHEELER PARKING AREA\t\t\t\t\t      \xdb\n");
+        for(i=0;i<2;i++)
+        {
+            printf("\xdb ");
+            for( j=0;j<50;j++)
+            {
+                if(four[i][j]==0)
+                printf("| ");
+                else
+                printf("* ");
+            }
+            printf("\xdb ");
+            printf("\n");
+        }
+        printf("\xdb\t\t\t\t\t\t\t\t\t\t\t\t      \xdb");
+        printf("\n");
+        printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+    }    
+}
+dealloc(int tokennum,int type)
+{
+int i,j;
+if(type==2)
+    {
+        for(i=0;i<2;i++)
+        {
+            for( j=0;j<50;j++)
+            {
+                if(two[i][j]==tokennum)
+                {
+                    two[i][j]=0;
+                    goto a;
+                }
+            }
+        }
+        a:    
+        printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");    
+        printf("\xdb ");
+        printf("\t\t\t\tTWO WHEELER PARKING AREA\t\t\t\t\t      \xdb\n");
+        for(i=0;i<2;i++)
+        {
+            printf("\xdb ");
+            for( j=0;j<50;j++)
+            {
+                if(two[i][j]==0)
+                printf("| ");
+                else
+                printf("* ");
+            }
+            printf("\xdb ");
+            printf("\n");
+        }
+        printf("\xdb\t\t\t\t\t\t\t\t\t\t\t\t      \xdb");
+        printf("\n");
+        printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+    }
+    else if(type==1)
+    {
+        for(i=0;i<2;i++)
+        {
+            for( j=0;j<50;j++)
+            {
+                if(four[i][j]==tokennum)
+                {
+                    four[i][j]=0;
+                    goto iu;
+                }
+            }
+        }
+        iu:
+            printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");    
+        printf("\xdb ");
+        printf("\t\t\t\tFOUR WHEELER PARKING AREA\t\t\t\t\t      \xdb\n");
+        for(i=0;i<2;i++)
+        {
+            printf("\xdb ");
+            for( j=0;j<50;j++)
+            {
+                if(four[i][j]==0)
+                printf("| ");
+                else
+                printf("* ");
+            }
+            printf("\xdb ");
+            printf("\n");
+        }
+        printf("\xdb\t\t\t\t\t\t\t\t\t\t\t\t      \xdb");
+        printf("\n");
+        printf("\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+    }
+}
+
+PAYMENT MODULE
+
+#include<math.h>
+#include <time.h>
+#include <stdio.h>
+#include<string.h>
+double totalfare1;
+charges(char a,char b,char c,char d,char in[15])
+{
+    time_t mytime = time(NULL);
+    char * time_str = ctime(&mytime);
+    time_str[strlen(time_str)-1] = '\0';
+    //printf("Current Time : %s\n", time_str);
+printf("TIME --->\t%c%c : %c%c\n\n",time_str[11],time_str[12],time_str[14],time_str[15]);
+
+
+int fare = 20;
+char str[5];
+str[0]=a;str[1]=b;str[2]=c;str[3]=d;
+int  starthour=(time_str[11]-48 )*10 + (time_str[12]-48);
+int  endhour=(str[0]-48 )*10 + (str[1]-48);
+printf(" %d hours ",starthour-endhour);
+int  startmin=(time_str[14]-48 )*10 + (time_str[15]-48);
+int  endmin=(str[2]-48 )*10 + (str[3]-48);
+printf("%d mins",startmin-endmin);
+int totmins=(starthour-endhour)*60+(startmin-endmin);
+printf("%d tot mins",totmins);
+double totalfare=(ceil)((double)totmins*((double)fare/60));
+printf("\n\nTotal fare -----> %lf",totalfare);
+char farestring[10];
+sprintf(farestring,"%lf",totalfare);
+
+//gcvt(totalfare,6,farestring);
+FILE * fptr;  
+    fptr = fopen("payment.txt", "a");
+  fputs(in,fptr);fputs("   ",fptr);
+fputs(time_str,fptr);fputs("   ",fptr);
+fprintf(fptr,farestring);fputs("   ",fptr);
+
+/*if(type[token][0]==1)
+fputs("Car",fptr);
+if(type[token][0]==2)
+fputs("Bike",fptr);*/
+fputs("\n",fptr);  
+fclose(fptr);
+totalfare1=totalfare1+totalfare;
+    return 0;
+}
+totalva()
+{
+printf("%f",totalfare1);
+}
+
+
+
+DISPLAY MODULE
+
+#include <stdio.h>
+#include <stdlib.h>   
+displ(int token)
+{
+int n;
+system("cls");
+printf("\n\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n");
+printf("\t\t\xdb                                               \xdb\n");
+printf("\t\t\xdb       =============================           \xdb\n");
+printf("\t\t\xdb        WELCOME TO VGK CAR SHOWROOM            \xdb\n");
+printf("\t\t\xdb       =============================           \xdb\n");
+printf("\t\t\xdb                                               \xdb\n");
+printf("\t\t\xdb                COIMBATORE                     \xdb\n");
+printf("\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\n\n\n");
+printf("\n\n\t\tSelect\n\n\t\t\t1.Total vehicle count\n\n\t\t\t2.Display boot log\n\n\t\t\t3.payment\n\n\t\tOption ---->\t");
+scanf("%d",&n);
+if(n==1)
+{
+    printf("\n\tTotal vehicles ---->\t%d",token-1);
+}
+if(n==2)
+{
+    FILE *fptr;   
+    char c;    
+    fptr = fopen("boot.txt", "r");
+    c = fgetc(fptr); printf("\n\n");
+    while (c != EOF)
+    {
+        printf ("%c", c);
+        c = fgetc(fptr);
+    }
+    fclose(fptr);
+}
+if(n==3)
+{
+FILE *fptr;
+char c;
+fptr = fopen("payment.txt", "r");
+    c = fgetc(fptr); printf("\n\n");
+    while (c != EOF)
+    {
+        printf ("%c", c);
+        c = fgetc(fptr);
+    }
+    fclose(fptr);
+}
+   return 0; }
